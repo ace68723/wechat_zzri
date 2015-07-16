@@ -94,13 +94,15 @@ app.post('/update_slides',function(req,res) {
 })
 
 
-app.post('/set_recommend',function(req,res) {
+
+
+app.post('/set_priority',function(req,res) {
 	var client_data = req.body;
 	var rid = client_data.rid;
-	var content = client_data.content;
+	var slides = client_data.slides;
 	console.log(rid);
 
-	fb_recommend.set_slides(rid, content)
+	fb_slides.set_priority(rid, slides)
 		.then(function(result) {
 			console.log(result)
 			res.status(200).send(result);
@@ -112,14 +114,109 @@ app.post('/set_recommend',function(req,res) {
 
 })
 
-
-app.post('/set_priority',function(req,res) {
+app.post('/add_recommend',function(req,res) {
 	var client_data = req.body;
 	var rid = client_data.rid;
-	var slides = client_data.slides;
+	var rcmd_content = client_data.rcmd_content;
 	console.log(rid);
 
-	fb_slides.set_priority(rid, slides)
+	fb_recommend.add_recommend(rid,rcmd_content)
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
+		})
+		.catch(function(error) {
+			console.log(error)
+			res.status(401).send(error);
+		});
+
+})
+app.post('/update_recommend',function(req,res) {
+	var client_data = req.body;
+	var rid = client_data.rid;
+	var rcmd_id = client_data.rcmd_id;
+	var rcmd_content = client_data.rcmd_content;
+	console.log(rid);
+
+	fb_recommend.update_recommend(rid,rcmd_id,rcmd_content)
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
+		})
+		.catch(function(error) {
+			console.log(error)
+			res.status(401).send(error);
+		});
+
+})
+app.post('/add_dish',function(req,res) {
+	var client_data = req.body;
+	var rid = client_data.rid;
+	var rcmd_id = client_data.rcmd_id;
+	var cat_id = client_data.cat_id;
+	var dish_content = client_data.dish_content;
+	console.log(rid);
+
+	fb_recommend.add_dish(rid,rcmd_id,cat_id,dish_content)
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
+		})
+		.catch(function(error) {
+			console.log(error)
+			res.status(401).send(error);
+		});
+
+})
+
+app.post('/update_dish',function(req,res) {
+	var client_data = req.body;
+	var rid = client_data.rid;
+	var rcmd_id = client_data.rcmd_id;
+	var cat_id = client_data.cat_id;
+	var dish_id = client_data.dish_id;
+	var dish_content = client_data.dish_content;
+	console.log(rid);
+
+	fb_recommend.update_dish(rid,rcmd_id,cat_id,dish_id,dish_content)
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
+		})
+		.catch(function(error) {
+			console.log(error)
+			res.status(401).send(error);
+		});
+
+})
+app.post('/update_cat',function(req,res) {
+	var client_data = req.body;
+	var rid = client_data.rid;
+	var rcmd_id = client_data.rcmd_id;
+	var cat_id = client_data.cat_id;
+	var cat_content = client_data.cat_content;
+	console.log(rid);
+
+	fb_recommend.update_cat(rid,rcmd_id,cat_id,cat_content)
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
+		})
+		.catch(function(error) {
+			console.log(error)
+			res.status(401).send(error);
+		});
+
+})
+
+app.post('/add_cat',function(req,res) {
+	var client_data = req.body;
+	var rid = client_data.rid;
+	var rcmd_id = client_data.rcmd_id;
+	var cat_content = client_data.cat_content;
+	console.log(rid);
+
+	fb_recommend.add_cat(rid,rcmd_id,cat_content)
 		.then(function(result) {
 			console.log(result)
 			res.status(200).send(result);
@@ -180,9 +277,9 @@ app.post('/get_blog_list',function(req,res) {
 	console.log(rid);
 
 	fb_blog.get_blog_list(rid)
-		.then(function(blog) {
-			console.log(blog)
-			res.status(200).send(blog);
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
 		})
 		.catch(function(error) {
 			console.log(error)
@@ -199,9 +296,9 @@ app.post('/get_blog_content',function(req,res) {
 	console.log(rid);
 
 	fb_blog.get_blog_content(rid,blog_id)
-		.then(function(blog) {
-			console.log(blog)
-			res.status(200).send(blog);
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
 		})
 		.catch(function(error) {
 			console.log(error)
@@ -218,9 +315,9 @@ app.post('/get_info',function(req,res) {
 	console.log(rid);
 
 	fb_info.get_info(rid)
-		.then(function(blog) {
-			console.log(blog)
-			res.status(200).send(blog);
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
 		})
 		.catch(function(error) {
 			console.log(error)
@@ -235,9 +332,9 @@ app.post('/get_name',function(req,res) {
 	console.log(rid);
 
 	fb_name.get_name(rid)
-		.then(function(blog) {
-			console.log(blog)
-			res.status(200).send(blog);
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
 		})
 		.catch(function(error) {
 			console.log(error)
@@ -253,9 +350,9 @@ app.post('/get_slides',function(req,res) {
 	console.log(rid);
 
 	fb_slides.get_slides(rid)
-		.then(function(blog) {
-			console.log(blog)
-			res.status(200).send(blog);
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
 		})
 		.catch(function(error) {
 			console.log(error)
@@ -270,9 +367,9 @@ app.post('/get_recommend',function(req,res) {
 	console.log(rid);
 
 	fb_recommend.get_recommend(rid)
-		.then(function(blog) {
-			console.log(blog)
-			res.status(200).send(blog);
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
 		})
 		.catch(function(error) {
 			console.log(error)
@@ -281,6 +378,86 @@ app.post('/get_recommend',function(req,res) {
 
 })
 
+app.post('/get_cat',function(req,res) {
+	var client_data 	= req.body;
+	var rid 			= client_data.rid;
+	var rcmd_id 			= client_data.rcmd_id;
+	console.log(rid);
+
+	fb_recommend.get_cat(rid,rcmd_id)
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
+		})
+		.catch(function(error) {
+			console.log(error)
+			res.status(401).send(error);
+		});
+
+})
+
+app.post('/get_dish',function(req,res) {
+	var client_data 	= req.body;
+	var rid 			= client_data.rid;
+	var dish_id 			= client_data.dish_id;
+	console.log(rid);
+
+	fb_recommend.get_dish(rid,dish_id)
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
+		})
+		.catch(function(error) {
+			console.log(error)
+			res.status(401).send(error);
+		});
+
+})
+
+
+app.post('/remove_dish_content',function(req,res) {
+	var client_data = req.body;
+	var rid = client_data.rid;
+	var rcmd_id = client_data.rcmd_id;
+	var cat_id = client_data.cat_id;
+	var dish_id = client_data.dish_id;
+	console.log(rid);
+	console.log("1", rcmd_id);
+	console.log("2", cat_id);
+
+
+	fb_recommend.remove_dish_content(rid,rcmd_id,cat_id,dish_id)
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
+		})
+		.catch(function(error) {
+			console.log(error)
+			res.status(401).send(error);
+		});
+
+})
+app.post('/remove_dish_list',function(req,res) {
+	var client_data = req.body;
+	var rid = client_data.rid;
+	var rcmd_id = client_data.rcmd_id;
+	var cat_id = client_data.cat_id;
+	console.log(rid);
+	console.log("1", rcmd_id);
+	console.log("2", cat_id);
+	
+
+	fb_recommend.remove_dish_list(rid,rcmd_id,cat_id)
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
+		})
+		.catch(function(error) {
+			console.log(error)
+			res.status(401).send(error);
+		});
+
+})
 
 app.post('/remove_info',function(req,res) {
 	var client_data = req.body;

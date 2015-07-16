@@ -7,7 +7,7 @@ var _				= require('lodash');
 
 var dataRef			= new Firebase('https://liang-node-test.firebaseio.com/');
 var rrclient_ref 	= dataRef.child("rrclient");
-var blog_ref 		= dataRef.child("blog");
+
 
 
 
