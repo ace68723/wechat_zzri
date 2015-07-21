@@ -1,6 +1,6 @@
 var Q 			= require('q')
 var Firebase 	= require('firebase');
-var dataRef		= new Firebase('https://liang-node-test.firebaseio.com/');
+var dataRef		= new Firebase('https://vivid-heat-760.firebaseio.com/');
 var rrclient_ref 	= dataRef.child("rrclient");
 var blog_ref 	= dataRef.child("blog");
 
