@@ -1,0 +1,4 @@
+[{"rid":"0","info_addr":"a","info_tel":"123","info_wechat":"abc"},
+{"rid":"1","info_addr":"b","info_tel":"456","info_wechat":"def"},
+{"rid":"2","info_addr":"c","info_tel":"789","info_wechat":"ghi"},
+{"rid":"3","info_addr":"d","info_tel":"12","info_wechat":"jkl"}]

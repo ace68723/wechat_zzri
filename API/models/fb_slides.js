@@ -39,13 +39,12 @@ function set_slides (rid,slides) {
 	// add a new slide.
 	var deferred = Q.defer();
 		
-		console.log(slides)
+		console.log('set_slides',slides)
 		rrclient_ref.child(rid).child("slides").push(slides, function(error) {
 		  if (error) {
 		   
 		     deferred.reject("Data could not be saved." + error);
 		  } else {
-		   
 		    deferred.resolve("Data saved successfully.");
 		  }
 		});

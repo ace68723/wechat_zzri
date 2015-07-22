@@ -33,7 +33,7 @@ function update_blog(rid,blog_id,blog_content) {
 
 function add_blog (rid,blog_content) {
 		var deferred = Q.defer();
-		var new_blog_Ref =	blog_ref.child(rid).push(blog_content, function(error) {
+		var new_blog_Ref =	blog_ref.push(blog_content, function(error) {
 							  if (error) {
 							   
 							     deferred.reject("Data could not be saved." + error);
@@ -41,7 +41,7 @@ function add_blog (rid,blog_content) {
 							  	console.log('blog key',new_blog_Ref.key())
 							  	
 								  	var key = new_blog_Ref.key()
-								  	rrclient_ref.child(rid).child("blog").child(key).child('title').set(blog_content.title, function(error) {
+								  	rrclient_ref.child(rid).child("blog").child(key).set(true, function(error) {
 									  if (error) {
 									   
 									     deferred.reject("Data could not be saved." + error);
