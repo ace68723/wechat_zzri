@@ -5,7 +5,7 @@ var _				= require('lodash');
 
 
 
-var dataRef			= new Firebase('https://vivid-heat-760.firebaseio.com/');
+var dataRef			= new Firebase('https://liang-node-test.firebaseio.com/');
 var rrclient_ref 	= dataRef.child("rrclient");
 
 

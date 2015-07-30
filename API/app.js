@@ -377,6 +377,22 @@ app.post('/get_recommend',function(req,res) {
 		});
 
 })
+app.post('/get_rrclient',function(req,res) {
+	var client_data 	= req.body;
+	var rid 			= client_data.rid;
+	console.log(rid);
+
+	fb_recommend.get_rrclient(rid)
+		.then(function(result) {
+			console.log(result)
+			res.status(200).send(result);
+		})
+		.catch(function(error) {
+			console.log(error)
+			res.status(401).send(error);
+		});
+
+})
 
 app.post('/get_cat',function(req,res) {
 	var client_data 	= req.body;

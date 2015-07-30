@@ -1,6 +1,6 @@
 var Q 			= require('q')
 var Firebase 	= require('firebase');
-var dataRef		= new Firebase('https://vivid-heat-760.firebaseio.com/');
+var dataRef		= new Firebase('https://liang-node-test.firebaseio.com/');
 var rrclient_ref 	= dataRef.child("rrclient");
 var dish_ref 	= dataRef.child("dish");
 var cat_ref 	= dataRef.child("cat");
@@ -139,7 +139,22 @@ function get_recommend (rid) {
 	return deferred.promise;
 
 }
+function get_rrclient () {
+		var deferred = Q.defer();
 
+		rrclient_ref.on("value", function(snapshot) {
+		 	var rclient = snapshot.val();
+		  	// console.log(rclient)
+		  	deferred.resolve(rclient);
+
+		}, function (errorObject) {
+		  console.log("The read failed: " + errorObject.code);
+		  deferred.reject(errorObject);
+
+		});
+	return deferred.promise;
+
+}
 function get_cat (rid,rcmd_id) {
 		var deferred = Q.defer();
 
@@ -239,6 +254,7 @@ module.exports	=	{
 	get_dish	: get_dish,
 	remove_recommend: remove_recommend,
 	remove_dish_content : remove_dish_content,
-	remove_dish_list: remove_dish_list
+	remove_dish_list: remove_dish_list,
+	get_rrclient	: get_rrclient
 	
 }
