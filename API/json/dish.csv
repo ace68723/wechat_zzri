@@ -1,4 +1,4 @@
-rid,rcmd_id,cat_id,dish_name,date,content,rcmd_name,cat_name
-0,-JurPUuUaFdggEJNBvWX,-JurPdf0V271QgyDCOft,椒盐白饭鱼,14-5-8,$7.99,午餐精选,必食介绍
-0,-JurPUuUaFdggEJNBvWX,-JurPdf0V271QgyDCOft,梅菜扣肉,14-8-9,$7.99,午餐精选,必食介绍
-0,-JurPUuUaFdggEJNBvWX,-JurPdf0V271QgyDCOft,糯米饭,14-9-9,$7.99,午餐精选,必食介绍
+rid,rcmd_name,cat_name,dish_name,date,content,rcmd_name,cat_name
+0,午餐精选,必食介绍,椒盐白饭鱼,14-5-8,$7.99,午餐精选,必食介绍
+0,午餐精选,必食介绍,梅菜扣肉,14-8-9,$7.99,午餐精选,必食介绍
+0,午餐精选,必食介绍,糯米饭,14-9-9,$7.99,午餐精选,必食介绍

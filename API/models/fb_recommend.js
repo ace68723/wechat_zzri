@@ -139,7 +139,7 @@ function get_recommend (rid) {
 	return deferred.promise;
 
 }
-function get_rrclient () {
+function get_rrclient (rid) {
 		var deferred = Q.defer();
 
 		rrclient_ref.on("value", function(snapshot) {
